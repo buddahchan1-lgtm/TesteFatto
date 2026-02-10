@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Minhas Tarefas</h1>
+    <table border="1" style="width: 100%; border-collapse: collapse;">
+        <tr style="background-color: #ddd;">
+            <th>ID</th><th>Tarefa</th><th>Custo (R$)</th><th>Data Limite</th><th>Ações</th>
+        </tr>
+        {% for tarefa in tarefas %}
+        <tr style="{{ 'background-color: yellow;' if tarefa.custo >= 1000 else '' }}">
+            <td>{{ tarefa.id }}</td>
+            <td>{{ tarefa.nome }}</td>
+            <td>{{ "%.2f"|format(tarefa.custo) }}</td>
+            <td>{{ tarefa.data_limite }}</td>
+            <td>
+                <a href="/editar/{{ tarefa.id }}"><button>Editar</button></a>
+                <a href="/excluir/{{ tarefa.id }}" onclick="return confirm('Excluir?')"><button>Excluir</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/incluir"><button style="padding: 10px;">Incluir Nova Tarefa</button></a>
+</body>
+</html>
