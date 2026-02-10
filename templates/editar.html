@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Tarefa</title>
+</head>
+<body>
+    <h2>Editar Tarefa</h2>
+    <form method="POST">
+        Nome: <input type="text" name="nome" value="{{ tarefa.nome }}" required><br><br>
+        Custo: <input type="number" step="0.01" name="custo" value="{{ tarefa.custo }}" required><br><br>
+        Data: <input type="date" name="data" value="{{ tarefa.data_limite }}" required><br><br>
+        <button type="submit">Atualizar</button>
+    </form>
+    <br>
+    <a href="/">Voltar</a>
+</body>
+</html>
